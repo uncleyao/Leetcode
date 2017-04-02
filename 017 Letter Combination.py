@@ -23,6 +23,8 @@ def dfs(digits, current, result):
     if not digits:
         result.append(current)
         return
+        # Using return means breaks 
+        # http://stackoverflow.com/questions/15300550/python-return-return-none-and-no-return-at-all
 
     ##
     for c in digit2letters[digits[0]]:
