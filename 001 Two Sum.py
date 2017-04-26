@@ -31,9 +31,13 @@ class Solution(object):
         :type target: int
         :rtype: List[int]
         """
+        result_list = []
         for i,n in enumerate(nums):
+            if i == len(nums)-1:
+                pass
             if target-n in nums[i+1:]:
-                return [i,nums[i+1:].index(target-n)+i+1]
+                result_list.append([i,nums[i+1:].index(target-n)+i+1])
+        return result_list
             
 s = sumtarget([1,2,7,4,5],6)
 
