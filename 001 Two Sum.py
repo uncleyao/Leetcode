@@ -19,7 +19,7 @@ def sumtarget(sourcelist, num):
         if num-var2 in hashmap:
             ind2 = hashmap[num -var2]
             if ind2 > i1:
-                result_list.append([i1+1,ind2+1])
+                result_list.append([i1,ind2])
 
     return result_list
 
