@@ -22,3 +22,20 @@ class Solution(object):
         for k in dic:
             if dic[k]>len(nums)/2:
                 return k
+
+ ### linear solution
+    def majorityElement2(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: int
+        """
+        count = 0
+        result = None
+        for n in nums:
+            if count == 0:
+                result = n
+            if result == n:
+                count +=1
+            if result != n:
+                count -=1
+        return result
