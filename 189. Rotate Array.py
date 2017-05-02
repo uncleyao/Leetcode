@@ -24,3 +24,21 @@ class Solution(object):
         reverse(nums,0,len(nums)-k-1)
         reverse(nums,len(nums)-k,len(nums)-1)
         reverse(nums,0,len(nums)-1)
+        return nums
+    
+    def rotate2(self,nums, k):
+        def move(nums):
+            b = nums[-1]
+            nums[1:] = nums[:-1]
+            nums[0]=b
+            return nums
+
+        for i in range(1,k+1):
+            move(nums)
+        return nums
+
+
+    def rotate(self,nums, k):
+        result = nums[-k:]
+        result.extend(nums[:-k])
+        return result
