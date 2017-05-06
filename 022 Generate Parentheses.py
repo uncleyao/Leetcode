@@ -13,6 +13,7 @@ def generate(left,right,str,result):
         return
     if left >0:
         generate(left-1,right,str+'(',result)
+        ##this part is important, you can only do right > left, b/c you should do valid parenthes
     if right > left:
         generate(left,right-1,str+')',result)
 
