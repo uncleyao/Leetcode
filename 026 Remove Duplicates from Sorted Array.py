@@ -11,13 +11,11 @@ Your function should return length = 2, with the first two elements of nums bein
 def removeDup(nums):
     if not nums:
         return 0
-
     index = 1
-    start = 0
-    for i in range(1,len(nums)):
-        if nums[i] != nums[start]:
+    start = 1
+    while start < len(nums):
+        if nums[index-1] != nums[start]:
             index+=1
-            start = i
+            nums[index-1] = nums[start]
+        start+=1
     return index
-
-print(removeDup([1,1,1,2,3,3]))
