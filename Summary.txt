@@ -1,0 +1,19 @@
+38,46,78: Use loop function
+
+078 is generating set, so firt you need to sort, then there is no need to worry about set sequence
+
+def generate_subsets(self, S, current, result):
+        result.append(current)
+        for ind, val in enumerate(S):
+            self.generate_subsets(S[ind+1:], current+[val], result)
+            
+ 046 is using sequence, and at first we shouldnt put [] in result
+ 
+    def get_permute(self, seq, current, result):
+        length = len(seq)
+        if length==0:
+            result.append(current)
+
+        for ind, val in enumerate(seq):
+            # try:
+            self.get_permute(seq[:ind]+seq[ind+1:], current+[val], result) 
