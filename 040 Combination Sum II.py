@@ -16,22 +16,30 @@ A solution set is:
 [1, 1, 6]
 """
 
-class Solution:
-    def combinationSum2(self,nums,target):
-        nums.sort()
+class Solution(object):
+    def combinationSum2(self, candidates, target):
+        """
+        :type candidates: List[int]
+        :type target: int
+        :rtype: List[List[int]]
+        """
+        if not candidates:
+            return []
+        candidates.sort()
         result = []
-        self.generate_n(nums,target,[],result)
+        self.combinationT(candidates,target,[],result)
         return result
-
-    def generate_n(self,nums,target,current,result):
-        if not nums or sum(current)>target:
+        
+    def combinationT(self, candidates, target, current, result):
+        s = sum(current) if current else 0
+        if s > target:
             return
-        if sum(current)== target:
+        elif s== target:
             result.append(current)
         inv = 0
-        while inv < len(nums):
-            self.generate_n(nums[inv+1:],target,current+[nums[inv]],result)
-            while inv+1 < len(nums) and nums[inv]==nums[inv+1]:
+        while inv < len(candidates):
+            self.combinationT(candidates[inv+1:],target,current+[candidates[inv]],result)
+            while inv < len(candidates)-1 and candidates[inv]==candidates[inv+1]:
                 inv+=1
             inv+=1
 
