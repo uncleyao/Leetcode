@@ -4,7 +4,21 @@ __author__ = 'yyao'
 Given an array and a value, remove all instances of that value in place and return the new length.
 The order of elements can be changed. It doesn't matter what you leave beyond the new length.
 '''
-
+##this one sumbitted
+    def removeElement(self, nums, val):
+        """
+        :type nums: List[int]
+        :type val: int
+        :rtype: int
+        """
+        if not nums:
+            return 0
+        index = 0
+        for i in range(len(nums)):
+            if nums[i]!=val:
+                nums[index]=nums[i]
+                index+=1
+        return index
 
 def removeElement(nums, val):
     if not nums:
