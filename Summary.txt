@@ -1,19 +1,45 @@
-38,46,78: Use loop function
+17,22,38,39,40,46,47,78: Use dfs
 
 078 is generating set, so firt you need to sort, then there is no need to worry about set sequence
 
-def generate_subsets(self, S, current, result):
-        result.append(current)
-        for ind, val in enumerate(S):
-            self.generate_subsets(S[ind+1:], current+[val], result)
+39: no duplicates------------------
+1. nums.sort()
+2. for inv,var in enumerate(candidates):
+            self.combinationT(target,candidates[inv:],current+[var],result)
             
- 046 is using sequence, and at first we shouldnt put [] in result
- 
-    def get_permute(self, seq, current, result):
-        length = len(seq)
-        if length==0:
-            result.append(current)
+40. have duplicates----------------
+1. nums.sort()
+2. while inv < len(candidates):
+            self.combinationT(candidates[inv+1:],target,current+[candidates[inv]],result)
+            while inv < len(candidates)-1 and candidates[inv]==candidates[inv+1]:
+                inv+=1
+            inv+=1
 
-        for ind, val in enumerate(seq):
-            # try:
-            self.get_permute(seq[:ind]+seq[ind+1:], current+[val], result) 
+46. distinct number permutation----------
+
+    def get_permute(self,seq,current,result):
+        length = len(seq)
+        if length == 0:
+            result.append(current)
+            
+        for ind,val in enumerate(seq):
+            self.get_permute(seq[:ind]+seq[ind+1:],current+[val],result)
+            
+47. contain duplicate----------
+    def dfs(self,nums,current,result):
+        if not nums:
+            result.append(current)
+        ind = 0
+        while ind <len(nums):
+            self.dfs(nums[:ind]+nums[ind+1:],current+[nums[ind]],result)
+            while ind <len(nums)-1 and nums[ind]==nums[ind+1]:
+                ind+=1
+            ind+=1
+
+
+78. Subsets-----------------------
+---all possible
+    def generate(self,strin,current,result):
+        result.append(current)
+        for ind,val in enumerate(strin):
+            self.generate(strin[ind+1:],current+[val],result)
