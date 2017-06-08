@@ -17,10 +17,13 @@ class Solution(object):
             flag = 1
         result = 0
         x = x*flag
+        
+        ###when x = 10 so use >=
         while x>=10:
             result*=10
             result += x%10
             x = x//10
+          ## will take care of the last one
         result = result*10 + x%10
 
         
