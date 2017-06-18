@@ -40,6 +40,8 @@ class Trie(object):
                 cur = cur.children[w]
             else:
                 return False
+        if not cur.ended:
+            return False
         return True
         
 
