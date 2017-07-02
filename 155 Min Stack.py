@@ -11,29 +11,43 @@ getMin() -- Retrieve the minimum element in the stack.
 class MinStack(object):
     def __init__(self):
         """
-        initiate
+        initialize your data structure here.
         """
         self.stack = []
-        self.min = 0
+        self.stack2 = []
 
-    def push(self,x):
-        ##
+    def push(self, x):
+        """
+        :type x: int
+        :rtype: void
+        """
         self.stack.append(x)
+        if len(self.stack2)==0 or x<= self.stack2[-1]:
+            self.stack2.append(x)
+        
 
     def pop(self):
-        if self.stack:
-            self.stack.pop()
-
+        """
+        :rtype: void
+        """
+        top = self.stack[-1]
+        self.stack.pop()
+        if top == self.stack2[-1]:
+            self.stack2.pop()
 
     def top(self):
-        if self.stack:
-            return self.stack[-1]
+        """
+        :rtype: int
+        """
+        return self.stack[-1]
 
     def getMin(self):
-        if self.stack:
-            return sorted(self.stack)[0]
-        else:
-            return 0
+        """
+        :rtype: int
+        """
+        return self.stack2[-1]
+        
+
 
 
 if __name__ == "__main__":
