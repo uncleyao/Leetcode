@@ -16,12 +16,12 @@ class Solution(object):
         for s in nums:
             if s in dic:
                 dic[s] += 1
+                if dic[n]> len(nums)/2:
+                    return n
             else:
                 dic[s] = 1
-        
-        for k in dic:
-            if dic[k]>len(nums)/2:
-                return k
+                if len(nums)==1:
+                    return n
 
  ### linear solution
     def majorityElement2(self, nums):
