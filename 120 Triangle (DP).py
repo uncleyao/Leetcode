@@ -11,6 +11,8 @@ For example, given the following triangle
 The minimum path sum from top to bottom is 11 (i.e., 2 + 3 + 5 + 1 = 11).
 
 DP SOLUTION
+create minpath[][]
+dp from bottom to top
 minpath[k][i] = min( minpath[k+1][i], minpath[k+1][i+1]) + triangle[k][i];
 """
 
