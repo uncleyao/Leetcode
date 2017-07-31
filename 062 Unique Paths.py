@@ -17,7 +17,7 @@ class Solution(object):
         result[0] = [1]*m
         for i in range(1,n):
             result[i][0] = 1
-        
+       
         for i in range(1,n):
             for j in range(1,m):
                 result[i][j] = result[i-1][j]+ result[i][j-1]
