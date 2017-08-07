@@ -49,6 +49,7 @@ class Solution(object):
             node.left = None
             node.right = None
             cur.right = node
+         #set cur right
             cur = cur.right
     
     def dfs(self, root,lst):
